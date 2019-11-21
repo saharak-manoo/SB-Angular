@@ -16,7 +16,15 @@ public class MemberController {
 
   @GetMapping("/members")
   public List<Member> all() {
+    System.out.println(">>>>>> dove");
+    System.out.println(memberService.getAllMembers().size());
+    System.out.println(memberService.getAllMembers().get(0).getFirstName());
     return memberService.getAllMembers();
+  }
+
+  @GetMapping("/members/{id}")
+  public ResponseEntity<?> showMemeber(@PathVariable Long id) {
+    return ResponseEntity.ok(memberService.findMemberById(id));
   }
 
   @PostMapping("/members")

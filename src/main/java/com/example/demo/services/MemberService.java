@@ -16,6 +16,10 @@ public class MemberService {
     return memberRepository.findByEmail(email);
   }
 
+  public Member findMemberById(Long id) {
+    return memberRepository.findById(id).orElse(null);
+  }
+
   public List<Member> getAllMembers() {
     return memberRepository.findAll();
   }
@@ -26,11 +30,11 @@ public class MemberService {
 
   public Member updateMember(Member member, Long id) {
     Member updateMember = memberRepository.findById(id).orElse(null);
-    // if (updateMember != null) {
-    // updateMember.setFirstName(member.getFirstName());
-    // updateMember.setLastName(member.getLastName());
-    // }
-    // final Member mymember = memberRepository.save(updateMember);
+    if (updateMember != null) {
+      updateMember.setFirstName(member.getFirstName());
+      updateMember.setLastName(member.getLastName());
+    }
+    final Member mymember = memberRepository.save(updateMember);
     return updateMember;
   }
 
