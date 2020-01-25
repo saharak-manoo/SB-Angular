@@ -9,12 +9,11 @@ import java.util.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1")
-public class MemberController {
+public class MemberController extends ApplicationController {
   @Autowired
   private MemberService memberService;
 
-  @GetMapping("/members")
+  @GetMapping("members")
   public List<Member> all() {
     System.out.println(">>>>>> dove");
     System.out.println(memberService.getAllMembers().size());
@@ -23,7 +22,7 @@ public class MemberController {
   }
 
   @GetMapping("/members/{id}")
-  public ResponseEntity<?> showMemeber(@PathVariable Long id) {
+  public ResponseEntity<?> showMember(@PathVariable Long id) {
     return ResponseEntity.ok(memberService.findMemberById(id));
   }
 
@@ -38,7 +37,7 @@ public class MemberController {
   }
 
   @DeleteMapping("/members/{id}")
-  public ResponseEntity<?> deleteMemeber(@PathVariable Long id) {
+  public ResponseEntity<?> deleteMember(@PathVariable Long id) {
     Map<String, String> response = new HashMap<String, String>();
     if (memberService.deleteMember(id)) {
       response.put("status", "success");
@@ -46,7 +45,7 @@ public class MemberController {
       return ResponseEntity.ok(response);
     } else {
       response.put("status", "error");
-      response.put("message", "Somthing went wrong when delete the member");
+      response.put("message", "Something went wrong when delete the member");
       return ResponseEntity.status(500).body(response);
     }
   }

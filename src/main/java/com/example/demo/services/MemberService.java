@@ -34,7 +34,7 @@ public class MemberService {
       updateMember.setFirstName(member.getFirstName());
       updateMember.setLastName(member.getLastName());
     }
-    final Member mymember = memberRepository.save(updateMember);
+    final Member myMember = memberRepository.save(updateMember);
     return updateMember;
   }
 
