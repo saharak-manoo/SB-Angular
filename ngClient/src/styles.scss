@@ -1,20 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-html {
-  font-family: 'Kanit', sans-serif;
-}
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
+  padding: 0;
 }
+
+body {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: Kanit;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-header {
+  font-family: 'Kanit', sans-serif;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
 span {
   font-family: 'Kanit', sans-serif;
 }
+
 .example-icon {
   padding: 0 14px;
 }
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+table {
+  width: 100%;
 }
