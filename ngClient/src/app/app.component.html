@@ -1,11 +1,12 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="app-header" color="primary">
   <mat-toolbar-row>
-    <span>ไทย</span>
+    <span>Easy Lunch</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart
-      icon">favorite</mat-icon>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example
-      delete icon">delete</mat-icon>
+    <span class="nav-tool-items">
+      <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+      <a mat-button mat-raised-button routerLink="register"
+        routerLinkActive="active">Register</a>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 
