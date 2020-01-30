@@ -16,25 +16,24 @@ public class User {
   private Long id;
 
   @NotBlank
-  @Email(message = "* Please Enter Valid Email Address")
-  @NotEmpty(message = "* Please Provide Email Address")
-  @Size(min = 3, max = 100)
-  @Column(name = "email", unique = true)
-  private String email;
+  @NotEmpty(message = "* Please enter username")
+  @Size(min = 6, max = 100)
+  @Column(name = "username", unique = true)
+  private String username;
 
   @NotBlank
-  @NotEmpty(message = "* Please Enter password")
+  @NotEmpty(message = "* Please enter password")
   @Size(min = 6, max = 100)
   @Column(name = "password")
   private String password;
 
   @Size(max = 50)
-  @NotEmpty(message = "* Please Enter First Name")
+  @NotEmpty(message = "* Please enter First Name")
   @Column(name = "first_name")
   private String firstName;
 
   @Size(max = 50)
-  @NotEmpty(message = "* Please Enter Last Name")
+  @NotEmpty(message = "* Please enter Last Name")
   @Column(name = "last_name")
   private String lastName;
 
@@ -42,12 +41,12 @@ public class User {
     return id;
   }
 
-  public String getEmail() {
-    return email;
+  public String getUsername() {
+    return username;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getPassword() {
