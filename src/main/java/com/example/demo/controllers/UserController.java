@@ -15,31 +15,28 @@ public class UserController extends ApplicationController {
 
   @GetMapping("users")
   public List<User> all() {
-    System.out.println(">>>>>> dove");
-    System.out.println(userService.getAllUsers().size());
-    System.out.println(userService.getAllUsers().get(0).getFirstName());
-    return userService.getAllUsers();
+    return userService.all();
   }
 
   @GetMapping("/users/{id}")
-  public ResponseEntity<?> showUser(@PathVariable Long id) {
-    return ResponseEntity.ok(userService.findUserById(id));
+  public ResponseEntity<User> showUser(@PathVariable Long id) {
+    return ResponseEntity.ok(userService.findById(id));
   }
 
   @PostMapping("/users")
   public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
-    return ResponseEntity.ok(userService.saveUser(user));
+    return ResponseEntity.ok(userService.save(user));
   }
 
   @PutMapping("/users/{id}")
   public ResponseEntity<User> updateUser(@Valid @RequestBody User user, @PathVariable(value = "id") Long id) {
-    return ResponseEntity.ok(userService.updateUser(user, id));
+    return ResponseEntity.ok(userService.update(user, id));
   }
 
   @DeleteMapping("/users/{id}")
   public ResponseEntity<?> deleteUser(@PathVariable Long id) {
     Map<String, String> response = new HashMap<String, String>();
-    if (userService.deleteUser(id)) {
+    if (userService.delete(id)) {
       response.put("status", "success");
       response.put("message", "user deleted successfully");
       return ResponseEntity.ok(response);

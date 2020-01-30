@@ -12,23 +12,23 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
 
-  public User findUserByEmail(String email) {
+  public User findByEmail(String email) {
     return userRepository.findByEmail(email);
   }
 
-  public User findUserById(Long id) {
+  public User findById(Long id) {
     return userRepository.findById(id).orElse(null);
   }
 
-  public List<User> getAllUsers() {
+  public List<User> all() {
     return userRepository.findAll();
   }
 
-  public User saveUser(User user) {
+  public User save(User user) {
     return userRepository.save(user);
   }
 
-  public User updateUser(User user, Long id) {
+  public User update(User user, Long id) {
     User updateUser = userRepository.findById(id).orElse(null);
     if (updateUser != null) {
       updateUser.setFirstName(user.getFirstName());
@@ -38,7 +38,7 @@ public class UserService {
     return updateUser;
   }
 
-  public Boolean deleteUser(Long id) {
+  public Boolean delete(Long id) {
     User delUser = userRepository.findById(id).orElse(null);
     if (delUser != null) {
       userRepository.delete(delUser);
