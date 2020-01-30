@@ -11,7 +11,7 @@ export class LoginService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json;'
     });
-    return this.http.post(`/api/v1/sign-in`, params, {
+    return this.http.post(`${environment.host}/api/v1/sign-in`, params, {
       headers: headers
     });
   }

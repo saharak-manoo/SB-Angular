@@ -4,18 +4,36 @@
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
 
-    <form class="example-form">
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username">
+          <input matInput formControlName="username" [(ngModel)]="username"
+            placeholder="Username">
+          <mat-error *ngIf="hasError('username', 'required')">
+            Username is required</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password">
+          <input matInput formControlName="password" type="password"
+            [(ngModel)]="password"
+            placeholder="Password">
+          <mat-error *ngIf="hasError('password', 'required')">
+            Password is required</mat-error>
+          <mat-error *ngIf="hasError('password', 'minlength')">
+            Password must be more than 6 characters.</mat-error>
         </mat-form-field>
       </mat-card-content>
       <button mat-stroked-button color="accent" class="btn-block"
-        (click)="signIn()">Log in</button>
+        type="submit"
+        [disabled]="!signInForm.valid || isLoading">
+        <mat-icon *ngIf="isLoading">
+          <mat-spinner
+            color="accent"
+            diameter="20">
+          </mat-spinner>
+        </mat-icon>
+        Log in
+      </button>
     </form>
   </mat-card>
 </div>
