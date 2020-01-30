@@ -38,7 +38,7 @@ public class User {
   @Column(name = "last_name")
   private String lastName;
 
-  public String getId() {
+  public Long getId() {
     return id;
   }
 
@@ -66,11 +66,11 @@ public class User {
     this.firstName = firstName;
   }
 
-   public String getLastName() {
+  public String getLastName() {
     return lastName;
   }
 
-  public void setlastName(String lastName) {
+  public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 }
