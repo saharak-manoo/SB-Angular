@@ -40,7 +40,9 @@ export class LoginComponent {
     this.loginService.signIn(params).subscribe(
       resp => {
         this.isLoading = false;
-        console.log(resp);
+        let data: any = resp;
+        localStorage.setItem('token', data.token);
+
         this.router.navigate([`/home`]);
         this.app.showSnackBar('Login done..', 'Close', 'green-snackbar');
       },

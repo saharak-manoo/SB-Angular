@@ -86,6 +86,8 @@ import {
 })
 export class MaterialModule {}
 
+import { AvatarModule } from 'ngx-avatar';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent],
   imports: [
@@ -96,7 +98,8 @@ export class MaterialModule {}
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
