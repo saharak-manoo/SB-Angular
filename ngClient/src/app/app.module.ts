@@ -13,6 +13,8 @@ import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
 import { RegisterComponent } from '../register/register.component';
 
+import { CreateUserDialogComponent } from '../create_user_dialog/create_user_dialog.component';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -89,7 +91,7 @@ export class MaterialModule {}
 import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, CreateUserDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -102,6 +104,7 @@ import { AvatarModule } from 'ngx-avatar';
     AvatarModule
   ],
   providers: [],
+  entryComponents: [CreateUserDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

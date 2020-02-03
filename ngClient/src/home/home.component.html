@@ -1,13 +1,28 @@
 <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
   <div class="container">
-    <h2>Users</h2>
-    <mat-card class="card-user" *ngFor="let user of users; let i= index">
-      <mat-card-content>
-        <br>
-        <ngx-avatar name={{user.firstName}}></ngx-avatar>
-        <br><br>
-        <h3>Full-Name: {{ user.firstName }} {{ user.lastName }}</h3>
-      </mat-card-content>
-    </mat-card>
+    <div class="row">
+      <div class="col-md-7">
+        <h2>Users</h2>
+      </div>
+      <div class="col-md-2">
+        <button mat-raised-button color="primary"
+          (click)="openDialogCreateUser()">Create</button>
+      </div>
+      <br>
+      <div class="col-md-12" *ngIf="isLoading">
+        Loading..
+      </div>
+      <div class="col-md-12" *ngIf="!isLoading">
+        <mat-card class="card-user" *ngFor="let user of
+          users; let i= index">
+          <mat-card-content>
+            <br>
+            <ngx-avatar name={{user.firstName}}></ngx-avatar>
+            <br><br>
+            <h3>Full-Name: {{ user.firstName }} {{ user.lastName }}</h3>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
   </div>
 </div>
