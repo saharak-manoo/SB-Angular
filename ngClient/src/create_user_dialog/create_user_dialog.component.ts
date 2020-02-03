@@ -10,6 +10,10 @@ import { AppComponent } from '../app/app.component';
 export class CreateUserDialogComponent implements OnInit {
   createUserForm: FormGroup;
   isLoading: boolean = false;
+  username: string = null;
+  password: string = null;
+  firstName: string = null;
+  lastName: string = null;
 
   constructor(public dialogRef: MatDialogRef<CreateUserDialogComponent>) {}
 
@@ -30,12 +34,12 @@ export class CreateUserDialogComponent implements OnInit {
     });
   }
 
-  onConfirm(): void {
-    this.dialogRef.close(true);
-  }
-
   onDismiss(): void {
-    this.dialogRef.close(false);
+    let data = {
+      user: null,
+      isCreate: true
+    };
+    this.dialogRef.close(data);
   }
 
   onSubmit() {
@@ -43,10 +47,18 @@ export class CreateUserDialogComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-      this.dialogRef.close(true);
-    }, 400);
+    let params = {
+      username: this.username,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName
+    };
+    let data = {
+      user: params,
+      isCreate: true
+    };
+
+    this.dialogRef.close(data);
   }
 }
 

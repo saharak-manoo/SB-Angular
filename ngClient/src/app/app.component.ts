@@ -9,14 +9,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   constructor(public snackBar: MatSnackBar, private route: ActivatedRoute, private router: Router) {}
+  isLogin: boolean = false
 
   ngOnInit() {
     let token = localStorage.getItem('token');
     if (token === null) {
+      this.isLogin = false
       this.router.navigate([`/login`]);
     } else {
+      this.isLogin = true
       this.router.navigate([`/home`]);
     }
+  }
+
+  signOut() {
+    localStorage.removeItem('token');
+     this.router.navigate([`/login`]);
   }
 
   showSnackBar(message, action, className) {

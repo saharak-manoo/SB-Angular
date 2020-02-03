@@ -3,9 +3,10 @@
     <span>Easy Lunch</span>
     <span class="example-spacer"></span>
     <span class="nav-tool-items">
-      <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
-      <a mat-button mat-raised-button routerLink="register"
+      <a *ngIf="!isLogin" mat-button routerLink="login" routerLinkActive="active">Log in</a>
+      <a *ngIf="!isLogin" mat-button mat-raised-button routerLink="register"
         routerLinkActive="active">Register</a>
+      <a *ngIf="isLogin" mat-button mat-raised-button (click)="signOut()">Sign Out</a>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
