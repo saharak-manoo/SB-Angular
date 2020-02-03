@@ -1,10 +1,12 @@
 <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
   <div class="container">
     <h2>Users</h2>
-    <mat-card class="box">
+    <mat-card class="card-user" *ngFor="let user of users; let i= index">
       <mat-card-content>
-        <ngx-avatar name="saharak manoo"></ngx-avatar>
-        Saharak
+        <br>
+        <ngx-avatar name={{user.firstName}}></ngx-avatar>
+        <br><br>
+        <h3>Full-Name: {{ user.firstName }} {{ user.lastName }}</h3>
       </mat-card-content>
     </mat-card>
   </div>
